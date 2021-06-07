@@ -1,0 +1,348 @@
+
+Table ITEM altered.
+
+
+TABLE_NAME     COLUMN_ID COLUMN_NAME            NULLABLE DATA_TYPE   
+-------------- --------- ---------------------- -------- ------------
+ITEM                   1 ITEM_ID                NOT NULL NUMBER(22)  
+ITEM                   2 ITEM_BARCODE           NOT NULL VARCHAR2(20)
+ITEM                   3 ITEM_TYPE              NOT NULL NUMBER(22)  
+ITEM                   4 ITEM_TITLE             NOT NULL VARCHAR2(60)
+ITEM                   5 ITEM_SUBTITLE          <Null>   VARCHAR2(60)
+ITEM                   6 ITEM_DESC              NOT NULL CLOB        
+ITEM                   7 ITEM_PHOTO             <Null>   BFILE       
+ITEM                   8 ITEM_RATING            NOT NULL VARCHAR2(8) 
+ITEM                   9 ITEM_RATING_AGENCY     NOT NULL VARCHAR2(4) 
+ITEM                  10 ITEM_RELEASE_DATE      NOT NULL DATE        
+ITEM                  11 CREATED_BY             NOT NULL NUMBER(22)  
+ITEM                  12 CREATION_DATE          NOT NULL DATE        
+ITEM                  13 LAST_UPDATED_BY        NOT NULL NUMBER(22)  
+ITEM                  14 LAST_UPDATE_DATE       NOT NULL DATE        
+ITEM                  15 TEXT_FILE_NAME         <Null>   VARCHAR2(40)
+
+15 rows selected. 
+
+Name               Null?    Type            
+------------------ -------- --------------- 
+ITEM_ID            NOT NULL NUMBER          
+ITEM_BARCODE       NOT NULL VARCHAR2(20)    
+ITEM_TYPE          NOT NULL NUMBER          
+ITEM_TITLE         NOT NULL VARCHAR2(60)    
+ITEM_SUBTITLE               VARCHAR2(60)    
+ITEM_DESC          NOT NULL CLOB            
+ITEM_PHOTO                  BINARY FILE LOB 
+ITEM_RATING        NOT NULL VARCHAR2(8)     
+ITEM_RATING_AGENCY NOT NULL VARCHAR2(4)     
+ITEM_RELEASE_DATE  NOT NULL DATE            
+CREATED_BY         NOT NULL NUMBER          
+CREATION_DATE      NOT NULL DATE            
+LAST_UPDATED_BY    NOT NULL NUMBER          
+LAST_UPDATE_DATE   NOT NULL DATE            
+TEXT_FILE_NAME              VARCHAR2(40)    
+
+Table LOGGER created.
+
+
+Sequence LOGGER_S created.
+
+Name                   Null?    Type         
+---------------------- -------- ------------ 
+LOGGER_ID              NOT NULL NUMBER       
+OLD_ITEM_ID                     NUMBER       
+OLD_ITEM_BARCODE                VARCHAR2(20) 
+OLD_ITEM_TYPE                   NUMBER       
+OLD_ITEM_TITLE                  VARCHAR2(60) 
+OLD_ITEM_SUBTITLE               VARCHAR2(60) 
+OLD_ITEM_RATING                 VARCHAR2(8)  
+OLD_ITEM_RATING_AGENCY          VARCHAR2(4)  
+OLD_ITEM_RELEASE_DATE           DATE         
+OLD_CREATED_BY                  NUMBER       
+OLD_CREATION_DATE               DATE         
+OLD_LAST_UPDATED_BY             NUMBER       
+OLD_LAST_UPDATE_DATE            DATE         
+OLD_TEXT_FILE_NAME              VARCHAR2(40) 
+NEW_ITEM_ID                     NUMBER       
+NEW_ITEM_BARCODE                VARCHAR2(20) 
+NEW_ITEM_TYPE                   NUMBER       
+NEW_ITEM_TITLE                  VARCHAR2(60) 
+NEW_ITEM_SUBTITLE               VARCHAR2(60) 
+NEW_ITEM_RATING                 VARCHAR2(8)  
+NEW_ITEM_RATING_AGENCY          VARCHAR2(4)  
+NEW_ITEM_RELEASE_DATE           DATE         
+NEW_CREATED_BY                  NUMBER       
+NEW_CREATION_DATE               DATE         
+NEW_LAST_UPDATED_BY             NUMBER       
+NEW_LAST_UPDATE_DATE            DATE         
+NEW_TEXT_FILE_NAME              VARCHAR2(40) 
+
+PL/SQL procedure successfully completed.
+
+
+                      Old                                New                               
+     Logger          Item                               Item                               
+       ID #          ID # Old Item Title                ID # New Item Title                
+----------- ------------- -------------------- ------------- ------------------------------
+          1          1014 Brave Heart                   1014 Brave Heart                   
+
+1 row selected. 
+
+
+Package MANAGE_ITEM compiled
+
+PROCEDURE ITEM_INSERT RETURNS <Null>
+Argument Name                  Type                    In/Out Default?
+------------------------------ ----------------------- ------ --------
+PV_NEW_ITEM_ID                 NUMBER                  IN     <Null>  
+PV_NEW_ITEM_BARCODE            VARCHAR2                IN     <Null>  
+PV_NEW_ITEM_TYPE               NUMBER                  IN     <Null>  
+PV_NEW_ITEM_TITLE              VARCHAR2                IN     <Null>  
+PV_NEW_ITEM_SUBTITLE           VARCHAR2                IN     <Null>  
+PV_NEW_ITEM_RATING             VARCHAR2                IN     <Null>  
+PV_NEW_ITEM_RATING_AGENCY      VARCHAR2                IN     <Null>  
+PV_NEW_ITEM_RELEASE_DATE       DATE                    IN     <Null>  
+PV_NEW_CREATED_BY              NUMBER                  IN     <Null>  
+PV_NEW_CREATION_DATE           DATE                    IN     <Null>  
+PV_NEW_LAST_UPDATED_BY         NUMBER                  IN     <Null>  
+PV_NEW_LAST_UPDATE_DATE        DATE                    IN     <Null>  
+PV_NEW_TEXT_FILE_NAME          VARCHAR2                IN     <Null>  
+
+PROCEDURE ITEM_INSERT RETURNS <Null>
+Argument Name                  Type                    In/Out Default?
+------------------------------ ----------------------- ------ --------
+PV_OLD_ITEM_ID                 NUMBER                  IN     <Null>  
+PV_OLD_ITEM_BARCODE            VARCHAR2                IN     <Null>  
+PV_OLD_ITEM_TYPE               NUMBER                  IN     <Null>  
+PV_OLD_ITEM_TITLE              VARCHAR2                IN     <Null>  
+PV_OLD_ITEM_SUBTITLE           VARCHAR2                IN     <Null>  
+PV_OLD_ITEM_RATING             VARCHAR2                IN     <Null>  
+PV_OLD_ITEM_RATING_AGENCY      VARCHAR2                IN     <Null>  
+PV_OLD_ITEM_RELEASE_DATE       DATE                    IN     <Null>  
+PV_OLD_CREATED_BY              NUMBER                  IN     <Null>  
+PV_OLD_CREATION_DATE           DATE                    IN     <Null>  
+PV_OLD_LAST_UPDATED_BY         NUMBER                  IN     <Null>  
+PV_OLD_LAST_UPDATE_DATE        DATE                    IN     <Null>  
+PV_OLD_TEXT_FILE_NAME          VARCHAR2                IN     <Null>  
+PV_NEW_ITEM_ID                 NUMBER                  IN     <Null>  
+PV_NEW_ITEM_BARCODE            VARCHAR2                IN     <Null>  
+PV_NEW_ITEM_TYPE               NUMBER                  IN     <Null>  
+PV_NEW_ITEM_TITLE              VARCHAR2                IN     <Null>  
+PV_NEW_ITEM_SUBTITLE           VARCHAR2                IN     <Null>  
+PV_NEW_ITEM_RATING             VARCHAR2                IN     <Null>  
+PV_NEW_ITEM_RATING_AGENCY      VARCHAR2                IN     <Null>  
+PV_NEW_ITEM_RELEASE_DATE       DATE                    IN     <Null>  
+PV_NEW_CREATED_BY              NUMBER                  IN     <Null>  
+PV_NEW_CREATION_DATE           DATE                    IN     <Null>  
+PV_NEW_LAST_UPDATED_BY         NUMBER                  IN     <Null>  
+PV_NEW_LAST_UPDATE_DATE        DATE                    IN     <Null>  
+PV_NEW_TEXT_FILE_NAME          VARCHAR2                IN     <Null>  
+
+PROCEDURE ITEM_INSERT RETURNS <Null>
+Argument Name                  Type                    In/Out Default?
+------------------------------ ----------------------- ------ --------
+PV_OLD_ITEM_ID                 NUMBER                  IN     <Null>  
+PV_OLD_ITEM_BARCODE            VARCHAR2                IN     <Null>  
+PV_OLD_ITEM_TYPE               NUMBER                  IN     <Null>  
+PV_OLD_ITEM_TITLE              VARCHAR2                IN     <Null>  
+PV_OLD_ITEM_SUBTITLE           VARCHAR2                IN     <Null>  
+PV_OLD_ITEM_RATING             VARCHAR2                IN     <Null>  
+PV_OLD_ITEM_RATING_AGENCY      VARCHAR2                IN     <Null>  
+PV_OLD_ITEM_RELEASE_DATE       DATE                    IN     <Null>  
+PV_OLD_CREATED_BY              NUMBER                  IN     <Null>  
+PV_OLD_CREATION_DATE           DATE                    IN     <Null>  
+PV_OLD_LAST_UPDATED_BY         NUMBER                  IN     <Null>  
+PV_OLD_LAST_UPDATE_DATE        DATE                    IN     <Null>  
+PV_OLD_TEXT_FILE_NAME          VARCHAR2                IN     <Null>  
+
+
+
+Package Body MANAGE_ITEM compiled
+
+
+PL/SQL procedure successfully completed.
+
+
+                      Old                                New                               
+     Logger          Item                               Item                               
+       ID #          ID # Old Item Title                ID # New Item Title                
+----------- ------------- -------------------- ------------- ------------------------------
+          1          1014 Brave Heart                   1014 Brave Heart                   
+          2 <Null>        <Null>                        1035 King Arthur-Inserted          
+          3          1035 King Arthur                   1035 King Arthur-Changed           
+          4          1035 King Arthur-Deleted  <Null>        <Null>                        
+
+4 rows selected. 
+
+
+Trigger ITEM_TRIG compiled
+
+
+Trigger ITEM_DELETE_TRIG compiled
+
+
+Table ITEM altered.
+
+
+Error starting at line : 694 in command -
+INSERT INTO item (
+    ITEM_ID
+  , ITEM_BARCODE
+  , ITEM_TYPE
+  , ITEM_TITLE
+  , ITEM_SUBTITLE
+  , ITEM_RATING
+  , ITEM_RATING_AGENCY
+  , ITEM_RELEASE_DATE
+  , CREATED_BY
+  , CREATION_DATE
+  , LAST_UPDATED_BY
+  , LAST_UPDATE_DATE)
+VALUES (
+    ITEM_S1.NEXTVAL
+  , 'B01IHVPA8'
+  , (SELECT common_lookup_id FROM common_lookup WHERE common_lookup_table = 'ITEM' AND common_lookup_column = 'ITEM_TYPE' AND common_lookup_type = 'BLU-RAY')
+  , 'Bourne'
+  , ''
+  , 'PG-13'
+  , 'MPAA'
+  , TO_DATE('6-Dec-16')
+  , 3
+  , SYSDATE
+  , 3
+  , SYSDATE)
+Error report -
+ORA-01400: cannot insert NULL into ("STUDENT"."ITEM"."ITEM_TYPE")
+
+
+Error starting at line : 721 in command -
+INSERT INTO item (
+    ITEM_ID
+  , ITEM_BARCODE
+  , ITEM_TYPE
+  , ITEM_TITLE
+  , ITEM_SUBTITLE
+  , ITEM_RATING
+  , ITEM_RATING_AGENCY
+  , ITEM_RELEASE_DATE
+  , CREATED_BY
+  , CREATION_DATE
+  , LAST_UPDATED_BY
+  , LAST_UPDATE_DATE)
+VALUES (
+    ITEM_S1.NEXTVAL
+  , 'B01AT251XY'
+  , (SELECT common_lookup_id FROM common_lookup WHERE common_lookup_table = 'ITEM' AND common_lookup_column = 'ITEM_TYPE' AND common_lookup_type = 'BLU-RAY')
+  , 'Bourne Legacy:'
+  , ''
+  , 'PG-13'
+  , 'MPAA'
+  , TO_DATE('5-Apr-16')
+  , 3
+  , SYSDATE
+  , 3
+  , SYSDATE)
+Error report -
+ORA-01400: cannot insert NULL into ("STUDENT"."ITEM"."ITEM_TYPE")
+
+
+Error starting at line : 748 in command -
+INSERT INTO item (
+    ITEM_ID
+  , ITEM_BARCODE
+  , ITEM_TYPE
+  , ITEM_TITLE
+  , ITEM_SUBTITLE
+  , ITEM_RATING
+  , ITEM_RATING_AGENCY
+  , ITEM_RELEASE_DATE
+  , CREATED_BY
+  , CREATION_DATE
+  , LAST_UPDATED_BY
+  , LAST_UPDATE_DATE)
+VALUES (
+    ITEM_S1.NEXTVAL
+  , 'B018FK66TU'
+  , (SELECT common_lookup_id FROM common_lookup WHERE common_lookup_table = 'ITEM' AND common_lookup_column = 'ITEM_TYPE' AND common_lookup_type = 'BLU-RAY')
+  , 'Star Wars: The Force Awakens'
+  , ''
+  , 'PG-13'
+  , 'MPAA'
+  , TO_DATE('5-Apr-16')
+  , 3
+  , SYSDATE
+  , 3
+  , SYSDATE)
+Error report -
+ORA-01400: cannot insert NULL into ("STUDENT"."ITEM"."ITEM_TYPE")
+
+
+0 rows selected. 
+
+
+                      Old                                New                               
+     Logger          Item                               Item                               
+       ID #          ID # Old Item Title                ID # New Item Title                
+----------- ------------- -------------------- ------------- ------------------------------
+          1          1014 Brave Heart                   1014 Brave Heart                   
+          2 <Null>        <Null>                        1035 King Arthur-Inserted          
+          3          1035 King Arthur                   1035 King Arthur-Changed           
+          4          1035 King Arthur-Deleted  <Null>        <Null>                        
+          5 <Null>        <Null>                        1094 Bourne                        
+          6 <Null>        <Null>                        1095 Bourne Legacy:                
+          7          1095 Bourne Legacy:                1095 Bourne Legacy                 
+          8 <Null>        <Null>                        1096 Star Wars: The Force Awakens  
+          9          1096 Star Wars: The Force          1096 Star Wars                     
+                           Awakens                                                         
+
+
+9 rows selected. 
+
+
+0 rows updated.
+
+
+0 rows selected. 
+
+
+                      Old                                New                               
+     Logger          Item                               Item                               
+       ID #          ID # Old Item Title                ID # New Item Title                
+----------- ------------- -------------------- ------------- ------------------------------
+          1          1014 Brave Heart                   1014 Brave Heart                   
+          2 <Null>        <Null>                        1035 King Arthur-Inserted          
+          3          1035 King Arthur                   1035 King Arthur-Changed           
+          4          1035 King Arthur-Deleted  <Null>        <Null>                        
+          5 <Null>        <Null>                        1094 Bourne                        
+          6 <Null>        <Null>                        1095 Bourne Legacy:                
+          7          1095 Bourne Legacy:                1095 Bourne Legacy                 
+          8 <Null>        <Null>                        1096 Star Wars: The Force Awakens  
+          9          1096 Star Wars: The Force          1096 Star Wars                     
+                           Awakens                                                         
+
+
+9 rows selected. 
+
+
+0 rows deleted.
+
+
+0 rows selected. 
+
+
+                      Old                                New                               
+     Logger          Item                               Item                               
+       ID #          ID # Old Item Title                ID # New Item Title                
+----------- ------------- -------------------- ------------- ------------------------------
+          1          1014 Brave Heart                   1014 Brave Heart                   
+          2 <Null>        <Null>                        1035 King Arthur-Inserted          
+          3          1035 King Arthur                   1035 King Arthur-Changed           
+          4          1035 King Arthur-Deleted  <Null>        <Null>                        
+          5 <Null>        <Null>                        1094 Bourne                        
+          6 <Null>        <Null>                        1095 Bourne Legacy:                
+          7          1095 Bourne Legacy:                1095 Bourne Legacy                 
+          8 <Null>        <Null>                        1096 Star Wars: The Force Awakens  
+          9          1096 Star Wars: The Force          1096 Star Wars                     
+                           Awakens                                                         
+
+
+9 rows selected. 
+
